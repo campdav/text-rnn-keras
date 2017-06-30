@@ -24,6 +24,8 @@ some items can be modified by editing the script:
 - **learning_rate** = 0.001 #learning rate
 - **sequences_step** = 1 #step to create sequences
 
+note: 8 epochs is cleraly not enough. Should be above 25.
+
 # Text generation Tutorial
 The project has a **generate,py** script.
 
