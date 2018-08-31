@@ -13,8 +13,7 @@ import collections
 from six.moves import cPickle
 
 save_dir = 'save' # directory where model is stored
-batch_size = 30 # minibatch size
-seq_length = 25 # sequence length
+seq_length = 15 # sequence length
 words_number = 400 #number of words to generate
 seed_sentences = "Il y a" #sentence for seed generation
 
@@ -29,7 +28,7 @@ vocab_size = len(words)
 
 # load the model
 print("loading model...")
-model = load_model('my_model.h5')
+model = load_model(save_dir + "/" + 'my_model.h5')
 
 def sample(preds, temperature=1.0):
     # helper function to sample an index from a probability array
@@ -59,7 +58,7 @@ print ()
 #generate the text
 for i in range(words_number):
     #create the vector
-    x = np.zeros((1, batch_size, vocab_size))
+    x = np.zeros((1, seq_length, vocab_size))
     for t, word in enumerate(sentence):
         x[0, t, vocab[word]] = 1.
 
